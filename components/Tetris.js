@@ -36,8 +36,12 @@ const Tetris = () => {
         
     }
 
+    const move = ({keyCode}) =>{
+        console.log('key=', keyCode);
+    }
+
     return (
-        <StyledTetrisWrap>
+        <StyledTetrisWrap role="Button" tabIndex="0" onKeyDown={e => move(e)}>
             <StyledTetris>
             <Stage stage={stage} />
             <aside>
