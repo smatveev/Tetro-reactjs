@@ -6,8 +6,8 @@ export const StyledButton = styled.button`
     padding: 20px;
     min-height: 40px;
     width: 100%;
-    border-radius: 40px;
-    border: 1px solid;
+    border-radius: 10px;
+    border: none;
     color: white;
     background: #777;
 `

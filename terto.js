@@ -56,7 +56,7 @@ export const TETRO = {
         ], 
         color: '227,79,78',
     },
-}
+};
 
 export const rndTetros = () => {
     const Tetros = 'IJLOSTZ';

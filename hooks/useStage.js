@@ -9,7 +9,7 @@ export const useStage = (player, resetPlayer) => {
         const updateStage = prevStage => {
             // First flush
             const newStage = prevStage.map(row => 
-                row.map(cell => (cell[1] === 'clear' ? [0, 'clear'] : cell)),
+                row.map(cell => (cell[1] === 'clear' ? [0, 'clear'] : cell))
             );
 
             //Draw
@@ -19,17 +19,24 @@ export const useStage = (player, resetPlayer) => {
                         newStage[y + player.pos.y][x + player.pos.x] = [
                             value,
                             `${player.collided ? 'merged' : 'clear'}`,
-                        ] 
+                        ];
                     }
                 });
             });
+            // check 
+            if(player.collided) {
+                resetPlayer();
+            }
 
             return newStage;
 
         };
 
-        setStage(prev => updateStage(prev))
-   }, [player.collided, player.pos.x, player.pos.y, player.tetro]);
+        setStage(prev => updateStage(prev));
+   }, [player, player.collided,
+    player.pos.x,
+    player.pos.y,
+    player.tetromino, resetPlayer]);
 
    return [stage, setStage];
 }
